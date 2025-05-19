@@ -2,16 +2,18 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:team4shoeshop_refactoring/view/admin/dealer_main.dart';
+import 'package:team4shoeshop_refactoring/view/admin/dealer_widget/dealer_widget.dart';
 
-class OReturn extends StatefulWidget {
-  const OReturn({super.key});
+class DealerReturn extends StatefulWidget {
+  const DealerReturn({super.key});
 
   @override
-  State<OReturn> createState() => _OReturnState();
+  State<DealerReturn> createState() => _OReturnState();
 }
 
-class _OReturnState extends State<OReturn> {
- List data = [];
+class _OReturnState extends State<DealerReturn> {
+List data = [];
 
   @override
   void initState() {
@@ -31,6 +33,7 @@ getReturnData() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DealerDrawer(),
       appBar: AppBar(
         title: const Text("반품 내역"),
       ),
