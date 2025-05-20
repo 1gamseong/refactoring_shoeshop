@@ -144,14 +144,14 @@ void fetchOrderData() {
     Map<String, List<Map<String, dynamic>>> tempMap = {};
     for (var item in data) {
       String date = (item['odate'] ?? '').toString().substring(0, 10);
-      String brand = item['pbrand'] ?? '';
+      String name = item['pname'] ?? '';
       int count = item['ocount'] ?? 0;
       int price = item['pprice'] ?? 0;
       int total = price * count;
 
       tempMap.putIfAbsent(date, () => []);
       tempMap[date]!.add({
-        'name': brand,
+        'name': name,
         'count': count,
         'total': total,
       });

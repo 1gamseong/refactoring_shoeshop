@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:team4shoeshop_refactoring/view/adminlogin.dart';
-import 'package:team4shoeshop_refactoring/view/login.dart';
+
+import 'package:team4shoeshop_refactoring/view/admin/d_orders.dart';
+
+
 
 
 void main() async {
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const Adminlogin(),
+
+      home: const DOrders(),
+
     );
   }
-}
+} 
