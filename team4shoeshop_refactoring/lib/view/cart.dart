@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:team4shoeshop_refactoring/view/edit_profile_page.dart';
 import 'buy.dart';
 
 class CartPage extends StatefulWidget {
@@ -82,7 +83,7 @@ class _CartPageState extends State<CartPage> {
         data["ccarddate"] == null) {
       Get.snackbar("카드 정보 없음", "회원정보 수정이 필요합니다.");
       await Future.delayed(const Duration(seconds: 1));
-      Get.toNamed('/edit_profile');
+      Get.to(() => EditProfilePage());
       return;
     }
 
@@ -104,8 +105,7 @@ class _CartPageState extends State<CartPage> {
                     itemCount: items.length,
                     itemBuilder: (context, index) {
                       final item = items[index];
-                      final imageUrl = item["image_url"] +
-                          "?t=${DateTime.now().millisecondsSinceEpoch}";
+                      // final imageUrl = item["image_url"] + "?t=${DateTime.now().millisecondsSinceEpoch}";
                       final isSelected = selectedOids.contains(item["oid"]);
 
                       return Card(

@@ -1,3 +1,4 @@
+
 // import 'dart:convert';
 
 // import 'package:flutter/material.dart';
@@ -80,11 +81,15 @@
 //     );
 //   }
 // }
+
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
+
 import 'package:team4shoeshop_refactoring/dealer/dealer_widget/daeler_widget.dart';
+
 
 class DealerMain extends StatefulWidget {
   const DealerMain({super.key});
@@ -116,6 +121,7 @@ class _DealerMainState extends State<DealerMain> {
   }
 
   void fetchDistrictName() {
+
     http.get(Uri.parse('http://127.0.0.1:8001/district?eid=$eid')).then((response) {
       final result = json.decode(utf8.decode(response.bodyBytes));
       dadminname = result['ename'] ?? '';
@@ -124,6 +130,7 @@ class _DealerMainState extends State<DealerMain> {
   }
 
 void fetchOrderData() {
+
   http.get(Uri.parse('http://127.0.0.1:8001/list')).then((response) {
     final all = json.decode(utf8.decode(response.bodyBytes))['results'] ?? [];
 
