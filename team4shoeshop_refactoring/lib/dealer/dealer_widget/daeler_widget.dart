@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:team4shoeshop_refactoring/view/admin/dealer_main.dart';
-import 'package:team4shoeshop_refactoring/view/admin/dealer_return.dart';
+import 'package:team4shoeshop_refactoring/dealer/dealer_main.dart';
+import 'package:team4shoeshop_refactoring/dealer/dealer_return.dart';
+import 'package:team4shoeshop_refactoring/view/adminlogin.dart';
 
 class DealerDrawer extends StatelessWidget {
   final box = GetStorage();
@@ -40,7 +41,7 @@ class DealerDrawer extends StatelessWidget {
             title: Text('로그아웃'),
             onTap: () {
               box.erase();
-             //Get.offAll(Adminlogin()); // 첫 화면으로 이동(로그인)
+             Get.offAll(Adminlogin()); // 첫 화면으로 이동(로그인)
             },
           ),
         ],

@@ -8,6 +8,7 @@ import 'package:team4shoeshop_refactoring/dealer/dealer_main.dart';
 import 'package:team4shoeshop_refactoring/view/login.dart';
 
 
+
 class Adminlogin extends StatefulWidget {
   const Adminlogin({super.key});
 
@@ -42,7 +43,7 @@ class _AdminloginState extends State<Adminlogin> {
     }
 
     try {
-      final url = Uri.parse("http://127.0.0.1:8000/employee_login");
+      final url = Uri.parse("http://127.0.0.1:8001/employee_login");
       final request = http.MultipartRequest("POST", url);
       request.fields['eid'] = id;
       request.fields['epassword'] = pw;
@@ -80,8 +81,9 @@ class _AdminloginState extends State<Adminlogin> {
       barrierDismissible: false,
       actions: [
         TextButton(
-          onPressed: () {
+          onPressed: ()async {
             Get.back();
+             await Future.delayed(Duration(milliseconds: 200)); // 💡 딜레이 추가
             if (employee['epermission'] == 0) {
               Get.offAll(() => const DealerMain());
             } else {
@@ -138,9 +140,15 @@ class _AdminloginState extends State<Adminlogin> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const CircleAvatar(
-                    backgroundImage: AssetImage('images/login.png'),
-                    radius: 60,
-                  ),
+  radius: 60,
+  backgroundColor: Colors.blue,
+  child: Icon(Icons.person, color: Colors.white, size: 40),
+),
+
+                  // const CircleAvatar(
+                  //   backgroundImage: AssetImage('images/login.png'),
+                  //   radius: 60,
+                  // ),
                   const SizedBox(height: 30),
                   TextField(
                     controller: adminIdController,
